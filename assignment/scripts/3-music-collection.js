@@ -40,6 +40,7 @@ console.log(collection);
 // }
 
 function showCollection( array ) {
+  console.log('Number of albums in collection:', collection.length);
   for (i=0; i < array.length; i++) {
     console.log(`${array[i].title} by ${array[i].artist}, published in ${array[i].yearPublished}`);
   }
