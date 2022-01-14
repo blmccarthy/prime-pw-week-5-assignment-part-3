@@ -58,24 +58,52 @@ showCollection(collection)
   - Create an array to hold any results, empty to start
   - Loop through the `collection` and add any objects with a matching artist to the array.
   - Return the array with the matching results. If no results are found, return an empty array.
+
+- Test the `findByArtist` function. Make sure to test with an artist you know is in the collection,
+as well as an artist you know is not in your collection. Check that for artists with multiple
+matches, all are found.
 */
 
 console.log('///// Testing findByArtist function /////');
 
 function findByArtist( array, artist ) {
   let artistSearch = [];
-  for (i=0; i < array.length; i++) {
-    if (array[i].artist === artist) {
-      artistSearch.push(array[i])
+  for (i=0; i < array.length; i++) { // loops through array
+    if (array[i].artist === artist) { // checks for matching artist
+      artistSearch.push(array[i]) // if match, pushes matching object to artistSearch array
     }
-  }
+  } // end loop
   if (artistSearch.length === 0) {
-    return `No matches found for ${artist}`;
+    return `No matches found for ${artist}`; // if no matching results
   } else {
-    console.log(`Matching results for ${artist}`);
+    console.log(`Matching results for ${artist}`); // if matching results, return matche
     return artistSearch;
   }
-}
+} // end findByArtist
 
 console.log(findByArtist(collection, 'Glass Animals'));
 console.log(findByArtist(collection, 'Taylor Swift'));
+
+
+console.log('///// STRETCH GOAL: search function /////');
+
+function search( artist, year ) {
+  let searchResult = [];
+  for (i=0; i < collection.length; i++) { // loops through collection
+    if (artist === collection[i].artist && year === collection[i].yearPublished) { // looks for matching artist AND year
+      searchResult.push(collection[i]); // adds matching result to searchResult array
+    }
+  }
+  // if NO matching results
+  if (searchResult.length === 0) { 
+    return `No results found for '${artist}' in year '${year}'`;
+  }
+  // if matching results
+  else {
+    console.log(`Matching results for ${artist} in year ${year}`);
+    return searchResult;
+  }
+} // end search
+
+console.log(search('Ray Charles', 1957));
+console.log(search('Glass Animals', 2016));
