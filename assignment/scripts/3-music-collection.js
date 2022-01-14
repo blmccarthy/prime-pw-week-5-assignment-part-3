@@ -27,6 +27,8 @@ console.log(addToCollection( 'Awake', 'Tycho', 2014 ));
 
 console.log(collection);
 
+///// Experiment Graveyard /////
+
 // function showCollection( array ) {
 //   for (i=0; i < array.length; i++) {
 //     console.log(`${array.title} by ${array.artist}, published in ${array.yearPublished}`);
@@ -40,10 +42,30 @@ console.log(collection);
 // }
 
 function showCollection( array ) {
-  console.log('Number of albums in collection:', collection.length);
+  console.log('Number of albums in collection:', collection.length); // logs number of albums in collection array
   for (i=0; i < array.length; i++) {
     console.log(`${array[i].title} by ${array[i].artist}, published in ${array[i].yearPublished}`);
-  }
-}
+  } // end loop
+} // end showCollection
 
 showCollection(collection)
+
+/*
+- Add a function named `findByArtist`. This function should:
+  - Take in `artist` (a string) parameter
+  - Create an array to hold any results, empty to start
+  - Loop through the `collection` and add any objects with a matching artist to the array.
+  - Return the array with the matching results. If no results are found, return an empty array.
+*/
+
+function findByArtist( array, artist ) {
+  let artistSearch = [];
+  for (i=0; i < array.length; i++) {
+    if (array[i].artist === artist) {
+      artistSearch.push(array[i])
+    }
+  }
+  return artistSearch;
+}
+
+console.log(findByArtist(collection, 'Glass Animals'));
