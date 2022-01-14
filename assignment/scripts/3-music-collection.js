@@ -1,5 +1,17 @@
 console.log('***** Music Collection *****')
 
+/*
+- Create a variable `collection` that starts as an empty array.
+
+- Add a function named `addToCollection`. This function should:
+  - Take in the album's `title`, `artist`, `yearPublished` as input parameters
+  - Create a new object having the above properties
+  - Add the new object to the end of the `collection` array
+  - Return the newly created object
+*/
+
+console.log('///// Testing addToCollection function /////');
+
 let collection = [];
 
 function addToCollection( title, artist, yearPublished ) {
@@ -13,12 +25,6 @@ function addToCollection( title, artist, yearPublished ) {
 } // end addToCollection
 
 console.log(addToCollection( 'Evil Empire', 'Rage Against the Machine', 1996));
-
-// console.log(collection[0].title);
-// console.log(collection[0].artist);
-// console.log(collection[0].yearPublished);
-// console.log(collection.length);
-
 console.log(addToCollection( 'Battle of Los Angeles', 'Rage Against the Machine', 1999 ));
 console.log(addToCollection( 'Dreamland', 'Glass Animals', 2020 ));
 console.log(addToCollection( 'How to be a Human Being', 'Glass Animals', 2016 ));
@@ -27,19 +33,15 @@ console.log(addToCollection( 'Awake', 'Tycho', 2014 ));
 
 console.log(collection);
 
-///// Experiment Graveyard /////
 
-// function showCollection( array ) {
-//   for (i=0; i < array.length; i++) {
-//     console.log(`${array.title} by ${array.artist}, published in ${array.yearPublished}`);
-//   }
-// }
+/*
+- Test the `addToCollection` function:
+  - Add 6 albums to your collection. Aim to have a mix of both same and different artists and published years. (Feel free to share your musical interests, or make stuff up. Totally fine either way.)
+  - Console.log each album as added using the returned value.
+  - After all are added, console.log the `collection` array.
+*/
 
-// function showCollection() {
-//   for (i=0; i < collection.length; i++) {
-//     console.log(`${collection.title} by ${collection.artist}, published in ${collection.yearPublished}`);
-//   }
-// }
+console.log('///// Testing showCollection function /////');
 
 function showCollection( array ) {
   console.log('Number of albums in collection:', collection.length); // logs number of albums in collection array
@@ -58,6 +60,8 @@ showCollection(collection)
   - Return the array with the matching results. If no results are found, return an empty array.
 */
 
+console.log('///// Testing findByArtist function /////');
+
 function findByArtist( array, artist ) {
   let artistSearch = [];
   for (i=0; i < array.length; i++) {
@@ -65,7 +69,13 @@ function findByArtist( array, artist ) {
       artistSearch.push(array[i])
     }
   }
-  return artistSearch;
+  if (artistSearch.length === 0) {
+    return `No matches found for ${artist}`;
+  } else {
+    console.log(`Matching results for ${artist}`);
+    return artistSearch;
+  }
 }
 
 console.log(findByArtist(collection, 'Glass Animals'));
+console.log(findByArtist(collection, 'Taylor Swift'));
