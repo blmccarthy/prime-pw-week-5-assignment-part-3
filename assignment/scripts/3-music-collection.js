@@ -26,3 +26,23 @@ console.log(addToCollection( 'Run the Jewels 2', 'Run the Jewels', 2014 ));
 console.log(addToCollection( 'Awake', 'Tycho', 2014 ));
 
 console.log(collection);
+
+// function showCollection( array ) {
+//   for (i=0; i < array.length; i++) {
+//     console.log(`${array.title} by ${array.artist}, published in ${array.yearPublished}`);
+//   }
+// }
+
+// function showCollection() {
+//   for (i=0; i < collection.length; i++) {
+//     console.log(`${collection.title} by ${collection.artist}, published in ${collection.yearPublished}`);
+//   }
+// }
+
+function showCollection( array ) {
+  for (i=0; i < array.length; i++) {
+    console.log(`${array[i].title} by ${array[i].artist}, published in ${array[i].yearPublished}`);
+  }
+}
+
+showCollection(collection)
