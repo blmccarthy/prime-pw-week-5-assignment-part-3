@@ -107,6 +107,7 @@ console.log(' ');
 
 // I think i may have cheated on this one by creating a seperate function
 // I couldn't figure out how to include it in the existing addToCollection function
+// But should have gotten the same result.
 // ¯\_(ツ)_/¯
 
 function addTracks( title, name, duration ) {
@@ -249,11 +250,13 @@ function showCollectionUpdate( array ) {
   console.log(' ');
   for ( i=0 ; i < array.length ; i++ ) {
     console.log(`${array[i].title} by ${array[i].artist}, published in ${array[i].yearPublished}:`);
+    // TITLE by ARTIST, published in YEAR:
     for ( x=0 ; x < array[i].tracks.length ; x++ ) {
       console.log( `${x + 1}. ${array[i].tracks[x].name}: ${array[i].tracks[x].duration}` )
-    }
+      // #. NAME: DURATION
+    } // end tracklist loop
   console.log(' ');
-  } // end loop
+} // end album loop
 } // end showCollection
 
 showCollectionUpdate(collection)
